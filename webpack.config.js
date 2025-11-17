@@ -1,3 +1,4 @@
+// webpack.config.js
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -12,17 +13,27 @@ module.exports = {
     clean: true,
   },
 
+  devtool: "eval-source-map",
+
+  devServer: {
+    static: "./dist",
+    watchFiles: ["src/**/*"],
+    hot: true,
+    open: true, // optional – opens browser automatically
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template.html",
     }),
   ],
 
-  devServer: {
-    static: "./dist",
-    watchFiles: ["src/**/*"], 
-    hot: true, 
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
-  
-  devtool: "eval-source-map",
 };
