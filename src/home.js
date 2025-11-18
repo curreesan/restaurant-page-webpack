@@ -1,3 +1,5 @@
+import restaurantImage from './restaurant.jpeg';
+
 export function loadHome() {
     const content = document.getElementById('content');
     content.innerHTML = '';
@@ -9,7 +11,7 @@ export function loadHome() {
     description.textContent = "The finest dishes cooked by finest chefs, for our finest customers";
 
     const restaurantImg = document.createElement("img");
-    restaurantImg.src = "https://fastly.picsum.photos/id/1080/800/600.jpg?hmac=r3yM5pT4dN9t3W2X1"
+    restaurantImg.src = restaurantImage;
     restaurantImg.alt = "Beautiful restaurant interior";
     restaurantImg.style.maxWidth = "100%";
     restaurantImg.style.height = "auto";
